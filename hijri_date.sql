@@ -165,3 +165,4 @@ BEGIN
     RETURN CONCAT(iy,'-',LPAD(im, 2, '0'),'-',LPAD(id, 2, '0'));
 END$$
 DELIMITER ;
+-- Example: select hdate('2020-01-01');
