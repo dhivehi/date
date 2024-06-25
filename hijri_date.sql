@@ -150,7 +150,7 @@ BEGIN
     SET mcjdn = cjdn - 2400000;
     
     WHILE x < 1741 DO
-        IF (JSON_EXTRACT(ummalqura_dat, CONCAT('$[', i, ']')) < mcjdn) THEN 
+        IF (JSON_EXTRACT(ummalqura_dat, CONCAT('$[', i, ']')) <= mcjdn) THEN 
         	SET i = x;
         END IF;
         SET x = x + 1;
