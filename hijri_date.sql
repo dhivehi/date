@@ -1,4 +1,4 @@
-DROP FUNCTION IF EXISTS `hdate`;
+-- DROP FUNCTION IF EXISTS `hdate`;
 DELIMITER $$
 CREATE FUNCTION `hdate`(g_date DATE) RETURNS varchar(20) CHARSET utf8 COLLATE utf8_unicode_ci
 BEGIN
