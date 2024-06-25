@@ -120,6 +120,7 @@ BEGIN
 79399, 79428, 79458, 79487, 79517, 79546, 79576, 79606, 79635, 79665, 79695, 79724, 79753, 79783, 79812, 79841, 79871, 79900, 79930, 79960,
 79990]';
 
+    
     SET m = month;
     SET y = year;
     
@@ -131,22 +132,7 @@ BEGIN
     SET a = FLOOR(y / 100);
     SET jgc = a - FLOOR(a / 4) - 2;
     SET cjdn = FLOOR(365.25 * (y + 4716)) + FLOOR(30.6001 * (m + 1)) + day - jgc - 1524;
-    SET a = FLOOR((cjdn - 1867216.25) / 36524.25);
-    SET jgc = a - FLOOR(a / 4) + 1;
-    SET b = cjdn + jgc + 1524;
-    SET c = FLOOR((b - 122.1) / 365.25);
-    SET d = FLOOR(365.25 * c);
-    SET month = FLOOR((b - d) / 30.6001);
-    SET day = (b - d) - FLOOR(30.6001 * month);
     
-    IF month > 13 THEN
-        SET c = c + 1;
-        SET month = month - 12;
-    END IF;
-    
-    SET month = month - 1;
-    SET year = c - 4716;
-    SET wd = (MOD(cjdn + 1, 7) + 7) % 7 + 1;
     SET mcjdn = cjdn - 2400000;
     
     WHILE x < 1741 DO
@@ -165,4 +151,4 @@ BEGIN
     RETURN CONCAT(iy,'-',LPAD(im, 2, '0'),'-',LPAD(id, 2, '0'));
 END$$
 DELIMITER ;
--- Example: select hdate('2020-01-01');
+-- Example: SELECT hdate('2024-06-25');
